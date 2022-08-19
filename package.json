@@ -1,0 +1,30 @@
+{
+  "name": "uci-parser-ts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "lint": "eslint src/**",
+    "test": "vitest",
+    "check": "tsc --noEmit --project ./tsconfig.json",
+    "build": "tsup src/index.ts --dts --format esm,cjs"
+  },
+  "dependencies": {
+    "parsimmon": "^1.18.1"
+  },
+  "devDependencies": {
+    "@types/parsimmon": "^1.10.6",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.4.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "tsup": "^6.2.2",
+    "typescript": "^4.7.4",
+    "vitest": "^0.22.0"
+  }
+}
