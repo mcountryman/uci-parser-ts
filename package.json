@@ -8,7 +8,6 @@
   "scripts": {
     "lint": "eslint src/**",
     "test": "vitest",
-    "check": "tsc --noEmit --project ./tsconfig.json",
     "build": "pnpm build:doc && pnpm build:bundle",
     "build:doc": "typedoc src/index.ts",
     "build:bundle": "tsup src/index.ts --dts --format esm,cjs"
