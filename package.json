@@ -24,6 +24,7 @@
     "type": "git",
     "url": "https://github.com/mcountryman/uci-parser-ts"
   },
+  "sideEffects": false,
   "description": "A UCI parser written in Typescript.",
   "dependencies": {
     "parsimmon": "^1.18.1"
