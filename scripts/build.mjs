@@ -26,26 +26,26 @@ await Promise.all([
     format: "cjs",
     outdir: "dist/node",
   }),
-
   rollup({
-    input: "./src/index.ts",
-    output: {
-      file: "dist/umd/uci-parser-ts.development.js",
-      name: "uci",
-      format: "umd",
-    },
+    input: "src/index.ts",
     plugins: [commonjs(), esbuild(), nodeResolve()],
-  }),
-
-  rollup({
-    input: "./src/index.ts",
-    output: {
-      file: "dist/umd/uci-parser-ts.production.js",
-      name: "uci",
-      format: "umd",
-    },
-    plugins: [terser(), commonjs(), esbuild(), nodeResolve()],
-  }),
+  })
+    .then((bundle) =>
+      Promise.all([
+        bundle.write({
+          file: "dist/umd/uci-parser-ts.development.js",
+          name: "uci",
+          format: "umd",
+        }),
+        bundle.write({
+          file: "dist/umd/uci-parser-ts.production.js",
+          name: "uci",
+          format: "umd",
+          plugins: [terser()],
+        }),
+      ]).then(() => bundle)
+    )
+    .then((bundle) => bundle.close()),
 
   typedoc(),
   copyFiles(),
