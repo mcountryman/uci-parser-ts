@@ -1,5 +1,5 @@
-import ClientCommand from "src/ClientCommand";
-import parseOneClient from "src/parseOneClient";
+import ClientCommand from "./ClientCommand";
+import parseOneClient from "./parseOneClient";
 
 /**
  * Parses a single UCI {@link ClientCommand}.
