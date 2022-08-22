@@ -1,8 +1,7 @@
 {
   "name": "uci-parser-ts",
-  "main": "./cjs/index.js",
-  "type": "module",
   "types": "./index.d.ts",
+  "main": "./node/index.js",
   "module": "./index.js",
   "author": "Marvin Countryman <me@maar.vin>",
   "engines": {
@@ -11,9 +10,7 @@
   "scripts": {
     "lint": "eslint src/**",
     "test": "vitest",
-    "build": "concurrently 'pnpm:build:doc' 'pnpm:build:bundle'",
-    "build:doc": "typedoc ./src/index.ts --tsconfig tsconfig.json",
-    "build:bundle": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs"
   },
   "version": "0.1.0",
   "license": "MIT",
@@ -39,7 +36,6 @@
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "concurrently": "^7.3.0",
-    "copyfiles": "^2.4.1",
     "esbuild": "^0.15.5",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",

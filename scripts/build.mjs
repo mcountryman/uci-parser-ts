@@ -1,7 +1,7 @@
 import { promisify } from "util";
 import { exec } from "child_process";
 import { resolve } from "path";
-import { copyFile, rm, stat } from "fs/promises";
+import { copyFile, mkdir, rm, stat } from "fs/promises";
 import { build } from "esbuild";
 import glob from "glob";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
@@ -19,7 +19,12 @@ await Promise.all([
     entryPoints,
     format: "esm",
     outdir: "dist/",
-    // outExtension: { ".js": ".mjs" },
+  }),
+
+  build({
+    entryPoints,
+    format: "cjs",
+    outdir: "dist/node",
   }),
 
   rollup({
@@ -42,11 +47,18 @@ await Promise.all([
     plugins: [terser(), commonjs(), esbuild(), nodeResolve()],
   }),
 
+  typedoc(),
   copyFiles(),
   buildTypes(),
 ]);
 
 async function copyFiles() {
+  try {
+    await mkdir("dist");
+  } catch {
+    // Do nothing assuming dist directory already exists
+  }
+
   return Promise.all([
     copyOver(resolve(`${dirname}/../README.md`), "dist/README.md"),
     copyOver(resolve(`${dirname}/../LICENSE.md`), "dist/LICENSE.md"),
@@ -54,14 +66,27 @@ async function copyFiles() {
   ]);
 }
 
+async function typedoc() {
+  const project = resolve(`${dirname}/../tsconfig.json`);
+  const entry = resolve(`${dirname}/../src/index.ts`);
+  const command = `typedoc ${entry} --tsconfig ${project} --out docs`;
+
+  await promisify(exec)(command);
+}
+
 async function buildTypes() {
   const project = resolve(`${dirname}/../tsconfig.json`);
-  const command = `tsc --project ${project} --emitDeclarationOnly --declaration --declarationDir dist`;
+  const command = `tsc --project ${project} --emitDeclarationOnly --declaration --declarationDir dist/node`;
   const { stderr } = await promisify(exec)(command);
 
   if (stderr) {
     throw new Error(`tsc failed with \n${stderr}`);
   }
+
+  const types = await promisify(glob)("dist/node/**/*.d.ts");
+  const operations = types.map((type) => copyOver(type, type.replace(/node\//, "")));
+
+  await Promise.all(operations);
 }
 
 async function copyOver(from, to) {
