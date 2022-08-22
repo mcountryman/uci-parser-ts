@@ -66,7 +66,7 @@ void main();
 ```html
 <html>
   <body>
-    <script src="https://unpkg.com/uci-parser-ts@0.1.1/umd/uci-parser-ts.production.js"></script>
+    <script src="https://unpkg.com/uci-parser-ts@latest/umd/uci-parser-ts.production.js"></script>
     <script>
       alert(JSON.stringify(uci.parseOne("bestmove e2e4")));
     </script>
