@@ -27,6 +27,7 @@
   "sideEffects": false,
   "description": "A UCI parser written in Typescript.",
   "dependencies": {
+    "@vitest/coverage-c8": "^0.22.1",
     "parsimmon": "^1.18.1"
   },
   "devDependencies": {
