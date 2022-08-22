@@ -1,4 +1,4 @@
-import ClientCommand from "../ClientCommand";
+import ClientCommand from "./ClientCommand";
 
 /**
  * An `option` command sent from the server to describe an option, it's type, it's name

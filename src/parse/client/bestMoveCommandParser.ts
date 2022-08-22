@@ -1,5 +1,5 @@
 import parsimmon from "parsimmon";
-import BestMoveCommand from "../../commands/client/BestMoveCommand";
+import BestMoveCommand from "../../BestMoveCommand";
 import move from "../util/move";
 import space from "../util/space";
 

@@ -1,4 +1,4 @@
-import EngineCommand from "../EngineCommand";
+import EngineCommand from "./EngineCommand";
 
 /**
  * The command that reqeusts the engine ready status.

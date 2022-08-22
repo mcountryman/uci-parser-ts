@@ -5,9 +5,9 @@ import parser from "./parse/parser";
  *
  * @example
  * ```
- * import { expect } from "vitest.js"
- * import parseOne from "uci-parser-ts/parseOne.js"
- * import BestMoveCommand from "uci-parser-ts/commands/client/BestMoveCommand.js"
+ * import { expect } from "vitest"
+ * import parseOne from "uci-parser-ts/parseOne"
+ * import BestMoveCommand from "uci-parser-ts/BestMoveCommand"
  *
  * const command = parseOne("bestmove e2e4 ponder e7e5");
  *

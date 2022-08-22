@@ -1,4 +1,4 @@
-import ClientCommand from "../ClientCommand";
+import ClientCommand from "./ClientCommand";
 import InfoAttr from "./info/InfoAttr";
 
 export default class InfoCommand extends ClientCommand {

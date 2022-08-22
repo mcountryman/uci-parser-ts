@@ -1,5 +1,5 @@
-import { ProtectionState } from "../../types";
-import ClientCommand from "../ClientCommand";
+import { ProtectionState } from "./types";
+import ClientCommand from "./ClientCommand";
 
 export default class CopyProtectionCommand extends ClientCommand {
   constructor(

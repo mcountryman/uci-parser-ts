@@ -1,5 +1,5 @@
 import parsimmon from "parsimmon";
-import IdCommand from "../../commands/client/IdCommand";
+import IdCommand from "../../IdCommand";
 import rest from "../util/rest";
 import space from "../util/space";
 

@@ -1,5 +1,5 @@
 import parsimmon from "parsimmon";
-import CurrLineInfoAttr from "../../../commands/client/info/CurrLineInfoAttr";
+import CurrLineInfoAttr from "../../../info/CurrLineInfoAttr";
 import move from "../../util/move";
 import number from "../../util/number";
 import space from "../../util/space";

@@ -1,5 +1,5 @@
 import parsimmon from "parsimmon";
-import ScoreInfoAttr from "../../../commands/client/info/ScoreInfoAttr";
+import ScoreInfoAttr from "../../../info/ScoreInfoAttr";
 import number from "../../util/number";
 import space from "../../util/space";
 

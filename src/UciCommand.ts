@@ -1,4 +1,4 @@
-import EngineCommand from "../EngineCommand";
+import EngineCommand from "./EngineCommand";
 
 /**
  * The command that tells teh engine to use the UCI protocol.  The engine will respond

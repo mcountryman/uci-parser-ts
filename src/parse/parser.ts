@@ -1,5 +1,5 @@
 import p from "parsimmon";
-import Command from "../commands/Command";
+import Command from "../Command";
 import clientCommandParser from "./client/clientCommandParser";
 
 /**
@@ -9,9 +9,9 @@ import clientCommandParser from "./client/clientCommandParser";
  *
  * > Parse the principal variation attribute from an info command
  * ```
- * import parser from "uci-parser-ts/parse/parser.js"
- * import InfoCommand from "uci-parser-ts/commands/client/InfoCommand.js"
- * import PrincipalVariationAttribute from "uci-parser-ts/commands/client/info/PrincipalVariationAttribute.js"
+ * import parser from "uci-parser-ts/parse/parser";
+ * import InfoCommand from "uci-parser-ts/InfoCommand";
+ * import PrincipalVariationAttribute from "uci-parser-ts/info/PrincipalVariationAttribute";
  *
  * function* getUciLines(): Iterator<string> {
  *   // ...

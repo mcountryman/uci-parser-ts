@@ -1,5 +1,5 @@
-import { UciMove } from "../../types";
-import ClientCommand from "../ClientCommand";
+import { UciMove } from "./types";
+import ClientCommand from "./ClientCommand";
 
 export default class BestMoveCommand extends ClientCommand {
   constructor(

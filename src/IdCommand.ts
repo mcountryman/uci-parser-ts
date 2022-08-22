@@ -1,4 +1,4 @@
-import ClientCommand from "../ClientCommand";
+import ClientCommand from "./ClientCommand";
 
 /**
  * The command that describes the engine identity.

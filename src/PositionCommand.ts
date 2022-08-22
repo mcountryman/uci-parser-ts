@@ -1,5 +1,5 @@
-import { UciMove } from "../../types";
-import EngineCommand from "../EngineCommand";
+import { UciMove } from "./types";
+import EngineCommand from "./EngineCommand";
 
 /**
  * The command that tells the engine to set up the position described in the fenstring

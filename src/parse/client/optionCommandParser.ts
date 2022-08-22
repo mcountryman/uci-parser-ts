@@ -1,5 +1,5 @@
 import parsimmon from "parsimmon";
-import OptionCommand from "../../commands/client/OptionCommand";
+import OptionCommand from "../../OptionCommand";
 import boolean from "../util/boolean";
 import number from "../util/number";
 import space from "../util/space";

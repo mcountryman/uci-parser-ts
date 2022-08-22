@@ -1,4 +1,4 @@
-import EngineCommand from "../EngineCommand";
+import EngineCommand from "./EngineCommand";
 
 /**
  * The command that tells the engine to quit the program as soon as possible.
