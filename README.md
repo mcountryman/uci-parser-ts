@@ -1,5 +1,7 @@
 # uci-parser-ts
 
+![npm](https://img.shields.io/npm/v/uci-parser-ts?style=for-the-badge) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/uci-parser-ts?style=for-the-badge) ![Codecov](https://img.shields.io/codecov/c/github/mcountryman/uci-parser-ts?style=for-the-badge)
+
 A [UCI](https://en.wikipedia.org/wiki/Universal_Chess_Interface) parser written in TypeScript.
 
 ## install
