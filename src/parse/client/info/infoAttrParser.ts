@@ -1,4 +1,4 @@
-import { alt, sepBy, string } from "parsimmon";
+import parsimmon from "parsimmon";
 import CpuLoadInfoAttr from "../../../commands/client/info/CpuLoadInfoAttr";
 import CurrentMoveInfoAttr from "../../../commands/client/info/CurrentMoveInfoAttr";
 import CurrentMoveNumberInfoAttr from "../../../commands/client/info/CurrentMoveNumberInfoAttr";
@@ -21,6 +21,8 @@ import rest from "../../util/rest";
 import space from "../../util/space";
 import currLineInfoAttrParser from "./currLineInfoAttrParser";
 import scoreInfoAttrParser from "./scoreInfoAttrParser";
+
+const { alt, sepBy, string } = parsimmon;
 
 /** An {@link InfoAttr} parser. */
 export default alt<InfoAttr>(

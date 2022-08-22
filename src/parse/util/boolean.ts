@@ -1,4 +1,6 @@
-import { alt, string } from "parsimmon";
+import parsimmon from "parsimmon";
+
+const { alt, string } = parsimmon;
 
 /** Parses a boolean from string input into a {@link boolean}. */
 export default alt(

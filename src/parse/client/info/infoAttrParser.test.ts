@@ -162,15 +162,12 @@ test.each([
   ["multipv 4", 4],
   ["multipv    69.420", 69.42],
   ["multipv\t-69.420", -69.42],
-])(
-  "Given `%s`, should parse a `MultiPrincipalVariationInfoCommand`",
-  (command, multiPv) => {
-    const parsed = infoAttrParser.tryParse(command);
+])("Given `%s`, should parse a `MultiPrincipalVariationInfoCommand`", (command, multiPv) => {
+  const parsed = infoAttrParser.tryParse(command);
 
-    expect(parsed).toBeInstanceOf(MultiPrincipalVariationInfoAttr);
-    expect(parsed as MultiPrincipalVariationInfoAttr).toHaveProperty("multiPv", multiPv);
-  }
-);
+  expect(parsed).toBeInstanceOf(MultiPrincipalVariationInfoAttr);
+  expect(parsed as MultiPrincipalVariationInfoAttr).toHaveProperty("multiPv", multiPv);
+});
 
 test.each([
   ["refutation e2e4 e7e5 e1g1 e7e8q", ["e2e4", "e7e5", "e1g1", "e7e8q"]],

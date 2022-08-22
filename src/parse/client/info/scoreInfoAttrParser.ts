@@ -1,8 +1,9 @@
-import { alt, seq, string } from "parsimmon";
+import parsimmon from "parsimmon";
 import ScoreInfoAttr from "../../../commands/client/info/ScoreInfoAttr";
 import number from "../../util/number";
 import space from "../../util/space";
-import spaceDelim from "../../util/spaceDelim";
+
+const { alt, seq, string } = parsimmon;
 
 interface MateOrCentipawn {
   mate?: number;
@@ -16,17 +17,20 @@ const centipawn = seq(string("cp"), space, number) //
   .map<MateOrCentipawn>(([, , centipawn]) => ({ centipawn }));
 
 /** A parser that parses a {@link ScoreInfoAttr}. */
-export default spaceDelim(
-  "score",
-  seq(
-    alt(mate, centipawn),
-    seq(space, string("lowerbound"))
-      .map(() => true)
-      .fallback(false),
-    seq(space, string("upperbound"))
-      .map(() => true)
-      .fallback(false)
-  ),
-  ([score, lowerBound, upperBound]) =>
-    new ScoreInfoAttr(score.centipawn, score.mate, lowerBound, upperBound)
-);
+export default string("score")
+  .skip(space)
+  .then(
+    seq(
+      alt(mate, centipawn),
+      seq(space, string("lowerbound"))
+        .map(() => true)
+        .fallback(false),
+      seq(space, string("upperbound"))
+        .map(() => true)
+        .fallback(false)
+    )
+  )
+  .map(
+    ([score, lowerBound, upperBound]) =>
+      new ScoreInfoAttr(score.centipawn, score.mate, lowerBound, upperBound)
+  );

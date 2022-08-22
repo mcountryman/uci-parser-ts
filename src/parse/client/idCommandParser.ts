@@ -1,7 +1,9 @@
-import { alt, seq, string } from "parsimmon";
+import parsimmon from "parsimmon";
 import IdCommand from "../../commands/client/IdCommand";
 import rest from "../util/rest";
 import space from "../util/space";
+
+const { alt, seq, string } = parsimmon;
 
 /** A {@link Parser} for the {@link IdCommand}. */
 export default alt(

@@ -1,4 +1,4 @@
-import { alt, sepBy1, string } from "parsimmon";
+import parsimmon from "parsimmon";
 import CopyProtectionCommand from "../../commands/client/CopyProtectionCommand";
 import InfoCommand from "../../commands/client/InfoCommand";
 import ReadyOkCommand from "../../commands/client/ReadyOkCommand";
@@ -11,6 +11,8 @@ import idCommandParser from "./idCommandParser";
 import infoAttrParser from "./info/infoAttrParser";
 import optionCommandParser from "./optionCommandParser";
 import protectionState from "./util/protectionState";
+
+const { alt, sepBy1, string } = parsimmon;
 
 /** A {@link ClientCommand} parser. */
 export default alt<ClientCommand>(

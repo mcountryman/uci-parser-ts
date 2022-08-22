@@ -1,4 +1,4 @@
-import { takeWhile } from "parsimmon";
+import p from "parsimmon";
 
 /** Parses everything until EOS. */
-export default takeWhile(() => true);
+export default p.takeWhile(() => true);

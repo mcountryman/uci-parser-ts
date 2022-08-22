@@ -1,4 +1,4 @@
-import { regexp } from "parsimmon";
+import p from "parsimmon";
 
 /** Parses non-line breaking whitespace. */
-export default regexp(/[ \t]+/);
+export default p.regexp(/[ \t]+/);

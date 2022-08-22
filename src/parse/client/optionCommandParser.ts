@@ -1,9 +1,11 @@
-import { alt, custom, sepBy, sepBy1, seq, string } from "parsimmon";
+import parsimmon from "parsimmon";
 import OptionCommand from "../../commands/client/OptionCommand";
 import boolean from "../util/boolean";
 import number from "../util/number";
 import space from "../util/space";
 import spaceOpt from "../util/spaceOpt";
+
+const { alt, custom, sepBy, sepBy1, seq, string } = parsimmon;
 
 interface Option {
   min?: number;
@@ -16,13 +18,9 @@ interface Option {
 const type = string("type")
   .skip(space)
   .then(
-    alt(
-      string("check"),
-      string("spin"),
-      string("combo"),
-      string("button"),
-      string("string")
-    ).skip(spaceOpt)
+    alt(string("check"), string("spin"), string("combo"), string("button"), string("string")).skip(
+      spaceOpt
+    )
   );
 
 /**
@@ -95,12 +93,5 @@ export default seq(
   fields
 ).map(
   ([name, kind, options]) =>
-    new OptionCommand(
-      name,
-      kind,
-      options.min,
-      options.max,
-      options.options,
-      options.defaultValue
-    )
+    new OptionCommand(name, kind, options.min, options.max, options.options, options.defaultValue)
 );
