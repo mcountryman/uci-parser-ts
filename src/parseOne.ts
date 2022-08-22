@@ -17,7 +17,7 @@ import parser from "./parse/parser";
  * ```
  *
  * @param command - The command to parse.
- * @throws {@link Error} If the command is not valid UCI.
+ * @throws {Error} If the command is not valid UCI.
  * @returns The parsed command.
  */
 export default function parseOne(command: string) {

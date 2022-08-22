@@ -67,11 +67,15 @@ async function copyFiles() {
 }
 
 async function typedoc() {
-  const project = resolve(`${dirname}/../tsconfig.json`);
   const entry = resolve(`${dirname}/../src/index.ts`);
-  const command = `typedoc ${entry} --tsconfig ${project} --out docs`;
+  const project = resolve(`${dirname}/../tsconfig.json`);
+  const examples = resolve(`${dirname}/../examples/`);
+  const command = `typedoc ${entry} --tsconfig ${project} --includes ${examples} --out docs`;
 
-  await promisify(exec)(command);
+  const { stderr } = await promisify(exec)(command);
+  if (stderr) {
+    throw new Error(`typedoc failed\n${stderr}`);
+  }
 }
 
 async function buildTypes() {
