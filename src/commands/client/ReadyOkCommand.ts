@@ -5,7 +5,6 @@ import ClientCommand from "../ClientCommand";
  *
  * @remarks
  *
- * This command is sent after the engine has received the {@link ReadyCommand}.
+ * This command is sent after the engine has received the {@link IsReadyCommand}.
  */
-
 export default class ReadyOkCommand extends ClientCommand {}

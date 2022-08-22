@@ -9,7 +9,9 @@ import clientCommandParser from "./client/clientCommandParser";
  *
  * > Parse the principal variation attribute from an info command
  * ```
- * import { parser, InfoCommand, PrincipalVariationInfoAttr } from "uci-parser-ts";
+ * import parser from "uci-parser-ts/parse/parser";
+ * import InfoCommand from "uci-parser-ts/commands/client/InfoCommand";
+ * import PrincipalVariationAttribute from "uci-parser-ts/commands/client/info/PrincipalVariationAttribute";
  *
  * function* getUciLines(): Iterator<string> {
  *   // ...
