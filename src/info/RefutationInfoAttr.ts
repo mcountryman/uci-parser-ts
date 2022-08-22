@@ -1,4 +1,4 @@
-import { UciMove } from "./types";
+import { UciMove } from "../types";
 import InfoAttr from "./InfoAttr";
 
 export default class RefutationInfoAttr extends InfoAttr {
